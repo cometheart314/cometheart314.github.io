@@ -2,45 +2,408 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>居合道秦野道場 無双直伝英信流</title>
+  <title>居合道 秦野道場 無双直伝英信流</title>
 
   <!-- Google Search Console 用 -->
   <meta name="google-site-verification" content="AX5PNG7ONo9ZwIKDyQCz44TguDPBcX-Z47SqCfstVsg" />
 
   <!-- 検索結果に出る説明文 -->
-  <meta name="description" content="居合道秦野道場は、神奈川県秦野市で活動する居合道の道場です。初心者から経験者まで、年齢や性別を問わず参加できます。稽古日程や場所、入会方法などの詳細は本ページからご覧いただけます。">
+  <meta name="description" content="居合道秦野道場は、神奈川県秦野市で活動する無双直伝英信流の居合道道場です。初心者から経験者まで、年齢や性別を問わず参加できます。稽古日程・場所・入会方法などをご案内しています。">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="居合道秦野道場">
+  <meta property="og:title" content="居合道 秦野道場">
+  <meta property="og:description" content="神奈川県秦野市で活動する無双直伝英信流の居合道道場。見学・体験を随時受け付けています。">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --ink: #1b1b1b;
+      --sub: #555;
+      --accent: #7a1f1f;
+      --line: #e0ddd6;
+      --bg: #faf8f4;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.85;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 64px;
+    }
+    header.hero {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      padding: 96px 20px 80px;
+      background: #11131a url("images/cover-image.jpg") center 35% / cover no-repeat;
+      border-bottom: 3px double var(--accent);
+      margin-bottom: 8px;
+    }
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(10,12,20,0.45), rgba(10,12,20,0.65));
+    }
+    header.hero > * { position: relative; }
+    header.hero h1 {
+      font-size: 2.3rem;
+      margin: 0 0 10px;
+      letter-spacing: 0.14em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+    header.hero .ryuha {
+      color: #f3d9c8;
+      letter-spacing: 0.34em;
+      font-size: 1.05rem;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 48px 0 16px;
+      padding-left: 14px;
+      border-left: 5px solid var(--accent);
+      letter-spacing: 0.06em;
+    }
+    p { margin: 0 0 16px; }
+    a { color: var(--accent); }
+    .lead { font-size: 1.05rem; }
+    .lead strong { color: var(--accent); }
+
+    figure {
+      margin: 24px 0;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: var(--sub);
+      margin-top: 8px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin: 16px 0;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+    .addr {
+      color: var(--sub);
+      font-size: 0.95rem;
+      margin: 0 0 6px;
+    }
+    .practice-time {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .map-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-top: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .map-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact {
+      background: #fbf6f2;
+      border: 1px solid #ecd9cc;
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .contact .mail {
+      font-size: 1.1rem;
+      font-weight: bold;
+      word-break: break-all;
+    }
+
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 460px;
+      font-size: 0.95rem;
+      background: var(--card);
+    }
+    caption {
+      caption-side: top;
+      text-align: left;
+      color: var(--sub);
+      font-size: 0.85rem;
+      padding-bottom: 8px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    thead th {
+      background: var(--accent);
+      color: #fff;
+      letter-spacing: 0.05em;
+      font-weight: normal;
+    }
+    tbody tr:nth-child(even) td { background: #f6f3ee; }
+    td.off { color: var(--sub); }
+    .event td { background: #fff5e8 !important; }
+
+    footer.site-foot {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 3px double var(--accent);
+      text-align: center;
+      color: var(--sub);
+    }
+    footer.site-foot .name {
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: 0.1em;
+    }
+    footer.site-foot .ryuha {
+      color: var(--accent);
+      letter-spacing: 0.2em;
+    }
+
+    /* 奉納演武アルバム */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .gallery button {
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .gallery button:hover img,
+    .gallery button:focus-visible img { transform: scale(1.06); }
+
+    /* ライトボックス（拡大表示） */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 4px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+    }
+    .lightbox .lb-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 2.2rem;
+      line-height: 1;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .lightbox .lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.6rem;
+      color: #fff;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+    }
+    .lightbox .lb-prev { left: 12px; }
+    .lightbox .lb-next { right: 12px; }
+
+    @media (max-width: 480px) {
+      header.hero { padding: 64px 16px 52px; }
+      header.hero h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.15rem; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-  <h1>居合道秦野道場</h1>
 
-  <p>
-    居合道秦野道場のウェブサイトへようこそ。<br>
-    当道場は、神奈川県秦野市で活動している居合道の道場です。初心者の方も歓迎しており、
-    基本動作から丁寧に指導いたします。
-  </p>
+  <header class="hero">
+    <h1>居合道 秦野道場</h1>
+    <p class="ryuha">無双直伝英信流</p>
+  </header>
 
-  <h2>道場のご案内</h2>
-  <ul>
-    <li>地域：神奈川県秦野市</li>
-    <li>対象：初心者〜経験者、年齢・性別不問</li>
-    <li>内容：居合道の稽古・形の稽古・礼法など</li>
-    <li>流派：無双直伝英信流</li>
-  </ul>
+  <div class="wrap">
 
-  <p>
-    詳しい稽古日程・場所・会費・お問い合わせ先などは、以下のページでご案内しています。
-  </p>
+    <p class="lead">
+      居合道は「刀を抜く瞬間に全てを込める武道」であり、技術とともに心を磨く道です。
+      「動く禅」とも言われています。
+      居合道の中でも <strong>無双直伝英信流</strong> は、最も代表的で広く伝わっている
+      古流居合術の一つで、秦野道場もこの流れを汲んでいます。
+    </p>
 
-  <p>
-    <a href="https://iaido-hadano.notion.site/" target="_blank" rel="noopener">
-      居合道秦野道場 詳細ページ（Notion）
-    </a>
-  </p>
+    <figure>
+      <img src="images/group-picture.jpg" alt="2024年7月 出雲大社相模分祠 奉納演武会 集合写真" loading="lazy">
+      <figcaption>2024年7月 出雲大社相模分祠 奉納演武会</figcaption>
+    </figure>
 
-  <!-- Notion ページの埋め込み -->
-  <iframe src="https://iaido-hadano.notion.site/ebd//26de6eb5b11b80f68926f07691fa38f1" width="100%" height="600" frameborder="0" allowfullscreen />
+    <h2>稽古日・場所</h2>
+    <p class="practice-time">原則 毎週日曜日 14:00〜16:00</p>    
+    <div class="card">
+      <h3>(1) 橘団地公民館</h3>
+      <p class="addr">小竹西公園 隣<br>
+        〒256-0802 神奈川県小田原市小竹671-29</p>
+      <div class="map-embed">
+        <iframe src="https://maps.google.com/maps?q=35.3094315,139.2315710&z=17&hl=ja&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="橘団地公民館（小竹西公園 隣）の地図"></iframe>
+      </div>
+    </div>
+<div class="card">
+      <h3>(2) メタックス体育館はだの</h3>
+      <p class="addr">第一または第二武道場<br>
+        〒257-0015 神奈川県秦野市平沢101-1</p>
+      <div class="map-embed">
+        <iframe src="https://maps.google.com/maps?q=35.379796,139.199778&z=16&hl=ja&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="メタックス体育館はだのの地図"></iframe>
+      </div>
+    </div>
+
+    <h2>入会・見学 大歓迎</h2>
+    <p>
+      刀に興味があるけれど不安…という方も、ぜひ安心してお越しください。
+      初心者の方も一から丁寧に指導いたします。
+      見学・体験も随時受け付けております。以下にご連絡ください。
+    </p>
+    <div class="contact">
+      <p class="mail">✉️ <a href="mailto:satoshi@mac.com">satoshi@mac.com</a></p>
+      <p style="margin:0;">担当: 松本 慧</p>
+    </div>
+
+    <h2>稽古スケジュール</h2>
+    <div class="table-scroll">
+      <table>
+        <caption>※ 日程・時間・場所は変更になる場合があります。</caption>
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>時間</th>
+            <th>場所</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+              <tr><td>2026/6/28（日）</td><td>14:00〜16:00</td><td>橘団地公民館</td><td></td></tr>
+           <tr><td>2026/7/5（日）</td><td>14:00〜16:00</td><td>橘団地公民館</td><td></td></tr>
+      <tr class="event"><td>2026/7/11（土）</td><td>11:00〜12:00</td><td>出雲大社相模分祠</td><td>奉納演武会</td></tr>
+             <tr><td>2026/7/12（日）</td><td>14:00〜16:00</td><td>橘団地公民館</td><td></td></tr>
+            <tr><td>2026/7/19（日）</td><td>14:00〜16:00</td><td>橘団地公民館</td><td></td></tr>
+            <tr><td>2026/7/26（日）</td><td>14:00〜16:00</td><td>橘団地公民館</td><td></td></tr>
+      </tbody>
+      </table>
+    </div>
+
+    <h2>奉納演武 アルバム</h2>
+    <p>2024年7月 出雲大社相模分祠 奉納演武会の様子です。写真をクリックすると拡大表示します。</p>
+
+    <div class="gallery" id="gallery">
+      <button type="button"><img src="images/enbu-2024-07/01.jpg" alt="奉納演武 写真1" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/02.jpg" alt="奉納演武 写真2" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/03.jpg" alt="奉納演武 写真3" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/04.jpg" alt="奉納演武 写真4" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/05.jpg" alt="奉納演武 写真5" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/06.jpg" alt="奉納演武 写真6" loading="lazy"></button>
+    </div>
+
+  </div>
+
+  <footer class="site-foot">
+    <p class="name">居合道 秦野道場</p>
+    <p class="ryuha">無双直伝英信流</p>
+    <p>✉️ <a href="mailto:satoshi@mac.com">satoshi@mac.com</a>　/　連絡先: 松本 慧</p>
+  </footer>
+
+  <!-- ライトボックス -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+    <button type="button" class="lb-close" aria-label="閉じる">&times;</button>
+    <button type="button" class="lb-nav lb-prev" aria-label="前の写真">&#8249;</button>
+    <img id="lb-img" src="" alt="">
+    <button type="button" class="lb-nav lb-next" aria-label="次の写真">&#8250;</button>
+  </div>
+
+  <script>
+    (function () {
+      var gallery = document.getElementById('gallery');
+      var lightbox = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lb-img');
+      var imgs = Array.prototype.slice.call(gallery.querySelectorAll('img'));
+      var current = 0;
+
+      function show(i) {
+        current = (i + imgs.length) % imgs.length;
+        lbImg.src = imgs[current].src;
+        lbImg.alt = imgs[current].alt;
+      }
+      function open(i) { show(i); lightbox.classList.add('open'); }
+      function close() { lightbox.classList.remove('open'); }
+
+      gallery.querySelectorAll('button').forEach(function (btn, i) {
+        btn.addEventListener('click', function () { open(i); });
+      });
+      lightbox.querySelector('.lb-close').addEventListener('click', close);
+      lightbox.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
+      lightbox.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
+      lightbox.addEventListener('click', function (e) { if (e.target === lightbox) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') show(current - 1);
+        else if (e.key === 'ArrowRight') show(current + 1);
+      });
+    })();
+  </script>
+
 </body>
 </html>
