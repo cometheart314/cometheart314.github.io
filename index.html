@@ -193,7 +193,13 @@
       letter-spacing: 0.2em;
     }
 
-    /* 奉納演武アルバム */
+    /* アルバム */
+    h3.album-title {
+      font-size: 1.1rem;
+      margin: 32px 0 4px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -345,16 +351,26 @@
       </table>
     </div>
 
-    <h2>奉納演武 アルバム</h2>
-    <p>2024年7月 出雲大社相模分祠 奉納演武会の様子です。写真をクリックすると拡大表示します。</p>
+    <h2>アルバム</h2>
 
-    <div class="gallery" id="gallery">
-      <button type="button"><img src="images/enbu-2024-07/01.jpg" alt="奉納演武 写真1" loading="lazy"></button>
-      <button type="button"><img src="images/enbu-2024-07/02.jpg" alt="奉納演武 写真2" loading="lazy"></button>
-      <button type="button"><img src="images/enbu-2024-07/03.jpg" alt="奉納演武 写真3" loading="lazy"></button>
-      <button type="button"><img src="images/enbu-2024-07/04.jpg" alt="奉納演武 写真4" loading="lazy"></button>
-      <button type="button"><img src="images/enbu-2024-07/05.jpg" alt="奉納演武 写真5" loading="lazy"></button>
-      <button type="button"><img src="images/enbu-2024-07/06.jpg" alt="奉納演武 写真6" loading="lazy"></button>
+    <h3 class="album-title">2026年7月 奉納演武</h3>
+    <p>出雲大社相模分祠 奉納演武会の様子です。写真をクリックすると拡大表示します。</p>
+    <div class="gallery">
+      <button type="button"><img src="images/enbu-2026-07/01.jpg" alt="2026年 出雲大社 集合写真" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2026-07/02.jpg" alt="茅ヶ崎・裾野・秦野 合同" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2026-07/03.jpg" alt="秦野メンバー 集合写真" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2026-07/04.jpg" alt="秦野メンバー 演武" loading="lazy"></button>
+    </div>
+
+    <h3 class="album-title">2024年7月 奉納演武</h3>
+    <p>出雲大社相模分祠 奉納演武会の様子です。写真をクリックすると拡大表示します。</p>
+    <div class="gallery">
+      <button type="button"><img src="images/enbu-2024-07/01.jpg" alt="2024年7月 奉納演武 写真1" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/02.jpg" alt="2024年7月 奉納演武 写真2" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/03.jpg" alt="2024年7月 奉納演武 写真3" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/04.jpg" alt="2024年7月 奉納演武 写真4" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/05.jpg" alt="2024年7月 奉納演武 写真5" loading="lazy"></button>
+      <button type="button"><img src="images/enbu-2024-07/06.jpg" alt="2024年7月 奉納演武 写真6" loading="lazy"></button>
     </div>
 
   </div>
@@ -375,22 +391,29 @@
 
   <script>
     (function () {
-      var gallery = document.getElementById('gallery');
       var lightbox = document.getElementById('lightbox');
       var lbImg = document.getElementById('lb-img');
-      var imgs = Array.prototype.slice.call(gallery.querySelectorAll('img'));
+      var imgs = [];   // 現在開いているアルバムの画像
       var current = 0;
 
       function show(i) {
+        if (!imgs.length) return;
         current = (i + imgs.length) % imgs.length;
         lbImg.src = imgs[current].src;
         lbImg.alt = imgs[current].alt;
       }
-      function open(i) { show(i); lightbox.classList.add('open'); }
+      function open(albumImgs, i) {
+        imgs = albumImgs;
+        show(i);
+        lightbox.classList.add('open');
+      }
       function close() { lightbox.classList.remove('open'); }
 
-      gallery.querySelectorAll('button').forEach(function (btn, i) {
-        btn.addEventListener('click', function () { open(i); });
+      document.querySelectorAll('.gallery').forEach(function (gallery) {
+        var albumImgs = Array.prototype.slice.call(gallery.querySelectorAll('img'));
+        gallery.querySelectorAll('button').forEach(function (btn, i) {
+          btn.addEventListener('click', function () { open(albumImgs, i); });
+        });
       });
       lightbox.querySelector('.lb-close').addEventListener('click', close);
       lightbox.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
