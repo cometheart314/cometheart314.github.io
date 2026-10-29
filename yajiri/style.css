@@ -217,3 +217,39 @@ svg .read { fill: var(--read); }
 }
 .site-footer a { color: var(--sub); }
 .site-footer nav { display: flex; gap: 16px; justify-content: center; margin-bottom: 6px; }
+
+/* 考え方: 流れの図とノートの例 */
+svg .arrow { stroke: var(--sub); stroke-width: 2; fill: none; }
+svg .head { fill: var(--sub); }
+svg .on-accent { fill: #fff; }
+pre.sample {
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  background: var(--code-bg);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+pre.sample code { background: none; padding: 0; font-size: inherit; }
+pre.sample .k { color: var(--accent); font-weight: 600; }
+pre.sample .c { color: var(--sub); }
+figcaption { margin-top: 8px; }
+details {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--surface);
+}
+details summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 8px; }
+details p:last-child { margin-bottom: 0; }
+
+/* 狭い画面: ヘッダーの項目が折り返さないように詰める */
+.site-nav a { white-space: nowrap; }
+@media (max-width: 480px) {
+  .site-header .inner { gap: 10px; }
+  .brand { font-size: 16px; }
+  .site-nav { gap: 12px; font-size: 14px; }
+}

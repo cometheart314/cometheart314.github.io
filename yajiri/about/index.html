@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yajiri の考え方 — AI のためのデータベースを、自分の手元に</title>
+<meta name="description" content="Yajiri は、読んだもの・調べたことを、AI が読める形で Obsidian に蓄えるアプリです。なぜ Obsidian に保存し、なぜ Google の Open Knowledge Format（OKF）の形にするのか、蓄えると何ができるのかを説明します。">
+<link rel="canonical" href="https://cometheart314.github.io/yajiri/about/">
+<link rel="icon" href="../images/favicon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header"><div class="inner">
+  <a class="brand" href="../"><img src="../images/favicon.png" alt="">Yajiri</a>
+  <nav class="site-nav"><a href="../">ホーム</a><a href="./" aria-current="page">考え方</a><a href="../help/">ヘルプ</a><a href="../privacy/">プライバシー</a></nav>
+</div></header>
+
+<main class="page">
+
+<h1>AI のためのデータベースを、自分の手元に</h1>
+<p class="lead">Yajiri は、あなたが読んだもの・調べたことを、AI が読める形で Obsidian に蓄えていくアプリです。</p>
+
+<figure>
+  <svg viewBox="0 0 720 230" role="img" aria-label="いろいろなアプリから Yajiri に送ると、AI が整理して Obsidian の vault に OKF の形で保存します。蓄えたノートは、人は Obsidian で、AI は Claude などで読めます。">
+    <defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="head"/></marker></defs>
+    <rect x="0" y="40" width="150" height="150" rx="12" class="track"/>
+    <text x="75" y="70" text-anchor="middle" class="label">読んだもの</text>
+    <text x="75" y="100" text-anchor="middle" class="sub">Web の記事</text>
+    <text x="75" y="122" text-anchor="middle" class="sub">メール・PDF</text>
+    <text x="75" y="144" text-anchor="middle" class="sub">Word・メモ</text>
+    <text x="75" y="166" text-anchor="middle" class="sub">画像</text>
+
+    <path d="M158 115 H 202" class="arrow" marker-end="url(#head)"/>
+    <rect x="210" y="75" width="120" height="80" rx="12" class="read"/>
+    <text x="270" y="110" text-anchor="middle" class="label on-accent">Yajiri</text>
+    <text x="270" y="134" text-anchor="middle" class="sub on-accent">AI が整理</text>
+
+    <path d="M338 115 H 382" class="arrow" marker-end="url(#head)"/>
+    <rect x="390" y="40" width="140" height="150" rx="12" class="track"/>
+    <text x="460" y="70" text-anchor="middle" class="label">Obsidian</text>
+    <text x="460" y="92" text-anchor="middle" class="label">の vault</text>
+    <text x="460" y="124" text-anchor="middle" class="sub">OKF の形の</text>
+    <text x="460" y="146" text-anchor="middle" class="sub">Markdown ファイル</text>
+
+    <path d="M538 90 L 582 62" class="arrow" marker-end="url(#head)"/>
+    <path d="M538 140 L 582 168" class="arrow" marker-end="url(#head)"/>
+    <text x="592" y="58" class="label">人が読む</text>
+    <text x="592" y="80" class="sub">Obsidian で</text>
+    <text x="592" y="168" class="label">AI が読む</text>
+    <text x="592" y="190" class="sub">Claude など</text>
+  </svg>
+</figure>
+
+<section>
+  <h2>Yajiri の目的</h2>
+  <p>毎日、たくさんの記事やメール、資料を読みます。でも、読んだものはブラウザの履歴やメールの受信箱、ダウンロードフォルダに散らばり、しばらくすると「どこで読んだか」も思い出せなくなります。</p>
+  <p>AI に「先月読んだあの記事の要点は？」と聞いても、AI はあなたが何を読んだかを知りません。AI はとても賢くなりましたが、<strong>あなた自身の知識</strong>を材料にするには、その知識が AI の読める場所と形で残っている必要があります。</p>
+  <p>Yajiri の目的は、<strong>あなた専用の、AI のためのデータベースを作ること</strong>です。読んだその場で Yajiri に送るだけで、AI が題名・要約・タグ・種類を付けて整理し、1 件ずつノートとして蓄えていきます。</p>
+</section>
+
+<section>
+  <h2>なぜ Obsidian に保存するのか</h2>
+  <p>保存場所には、ノートアプリの <a href="https://obsidian.md/">Obsidian</a> の vault（保管庫）を使います。vault の正体は、Mac の中のふつうのフォルダです。</p>
+  <div class="cards">
+    <div class="card">
+      <p class="card-title">データはあなたのもの</p>
+      <p>ノートは Mac の中の Markdown ファイル（ただのテキストファイル）です。どこかの会社のサーバーに閉じ込められず、アプリが使えなくなっても読めます。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">人にも読みやすい</p>
+      <p>Obsidian で検索し、リンクをたどり、グラフでつながりを眺められます。AI のためのデータでも、まず自分が読み返せることが大切です。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">AI にも渡しやすい</p>
+      <p>ただのファイルなので、ファイルを読める AI（Claude など）にフォルダごと見せられます。特別な変換や取り出しの作業は要りません。</p>
+    </div>
+  </div>
+  <p>iCloud Drive に vault を置けば、iPhone や iPad の Obsidian からも同じノートを見られます。</p>
+</section>
+
+<section>
+  <h2>なぜ OKF の形にするのか</h2>
+  <p><strong>OKF（Open Knowledge Format）</strong>は、Google Cloud が 2026 年 6 月に公開した、知識を Markdown ファイルで表すための共通の形式です。特定の会社や AI に縛られない、誰でも使えるオープンな決まりとして作られています。</p>
+  <p>AI の世界では、知識をどう書いておくかが道具ごとにばらばらで、ある AI のために書いたメモを別の AI で使い回しにくい、という問題がありました。OKF は、その書き方をできるだけ単純な決まりにそろえるものです。中心になる決まりは次のとおりです。</p>
+  <ul class="steps">
+    <li><span class="num">1</span><span><strong>1 つのファイルに 1 つの事柄</strong>を書く</span></li>
+    <li><span class="num">2</span><span>ファイルの先頭（frontmatter）に、<strong>種類（<code>type</code>）</strong>などの見出し情報を書く。必ず要るのは <code>type</code> だけ</span></li>
+    <li><span class="num">3</span><span>本文はふつうの Markdown で、見出しや箇条書きを使って書く</span></li>
+    <li><span class="num">4</span><span>関係のある事柄どうしを<strong>リンク</strong>でつなぐ</span></li>
+  </ul>
+  <p>Yajiri が保存するノートは、この基本の形にそろえてあります。</p>
+
+  <figure>
+<pre class="sample"><code><span class="c">---</span>
+<span class="k">type:</span> 調べもの  <span class="c">← 種類（OKF で必ず要る項目）</span>
+<span class="k">date:</span> 2026-10-29
+<span class="k">source:</span> Safari  <span class="c">← どこから取り込んだか</span>
+<span class="k">tags:</span>  <span class="c">← 横断して探すためのタグ</span>
+  - 黒曜石
+  - 考古学
+<span class="k">summary:</span> 黒曜石は溶岩が急に冷えてできた天然のガラスで、…
+<span class="c">---</span>
+
+# 黒曜石と古代の交易
+
+黒曜石は、火山から噴き出した溶岩が急に冷えて固まった…
+
+## 関連
+
+- [[長野県の和田峠]]  <span class="c">← 関係のあるノートへのリンク</span></code></pre>
+    <figcaption class="note">Yajiri が書き出すノートの例。ファイル名は「2026-10-29 黒曜石と古代の交易.md」になります。</figcaption>
+  </figure>
+
+  <p>こうしておくと、AI は全部の本文を読まなくても、先頭の <code>type</code> や <code>tags</code>、<code>summary</code> を見て「議事録だけ」「この話題のものだけ」と必要なノートを素早く選べます。人にとっても、そのまま読める普通の文章です。</p>
+  <p>そして何より、形式が公開された共通の決まりなので、<strong>今使っている AI が変わっても、蓄えたノートはそのまま次の AI に渡せます</strong>。何年もかけて蓄える知識だからこそ、特定の道具に縛られない形にしておくことが大切です。</p>
+
+  <details>
+    <summary>OKF とのくわしい対応</summary>
+    <p>OKF で必須の項目は <code>type</code> だけで、Yajiri のノートは必ず <code>type</code> を持っています。OKF が勧める項目のうち、<code>tags</code> はそのまま使い、要約は Obsidian での見やすさから <code>summary</code> という名前で書いています。関連ノートへのリンクは Obsidian の <code>[[ ]]</code> の形で書くため、Obsidian ではつながりとして表示されますが、OKF 専用のツールでは通常のリンクとして扱われないことがあります。</p>
+    <p>OKF の仕様は <a href="https://github.com/GoogleCloudPlatform/open-knowledge-format">GoogleCloudPlatform/open-knowledge-format</a> で公開されています。</p>
+  </details>
+</section>
+
+<section>
+  <h2>蓄えると、何ができるようになるか</h2>
+  <p>1 件ずつは小さなノートでも、数百件、数千件と蓄えると、あなたの関心と経験が詰まったデータベースになります。</p>
+
+  <div class="cards">
+    <div class="card">
+      <p class="card-title">自分の知識をもとに AI に聞ける</p>
+      <p>ファイルを読める AI に vault を見せて、「この半年で読んだ AI 関連の記事から、大きな流れをまとめて」「前に調べた手続きの段取りは？」と聞けます。答えの材料は、ネットの一般論ではなく、あなたが読んで残したものです。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">種類や期間で振り返れる</p>
+      <p>ノートには種類・日付・タグが付いているので、Obsidian の検索や一覧表示（Bases）で「議事録だけ」「先月の Web 記事」「やることのうち未対応のもの」といった絞り込みができます。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">つながりが見えてくる</p>
+      <p>Yajiri は保存のたびに関連するノートをリンクします。Obsidian のグラフビューで眺めると、別々の時期に読んだ記事が同じ話題でつながっていることに気づけます。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">書く・作るときの材料になる</p>
+      <p>企画書や記事、報告をまとめるとき、関係するノートを AI に読ませて下書きを作れます。出典が自分のノートなので、あとから確かめるのも簡単です。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">AI が替わっても使い続けられる</p>
+      <p>ノートは OKF の形のただのファイルなので、新しい AI や道具が出ても、そのまま渡せます。蓄えた知識は、道具ではなくあなたの手元に残ります。</p>
+    </div>
+    <div class="card">
+      <p class="card-title">必要な分だけ人と共有できる</p>
+      <p>チームに渡したいノートだけをフォルダにまとめて共有すれば、受け取った人も、その人の AI も同じ形で読めます。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>はじめるには</h2>
+  <p>Obsidian の vault を 1 つ用意して Yajiri に選び、気になった文章を見つけたら「Yajiri に送る」。それだけで、AI のためのデータベースが少しずつ育っていきます。</p>
+  <div class="buttons" style="justify-content:flex-start">
+    <a class="button" href="../help/">使い方を見る</a>
+    <a class="button secondary" href="../help/#engines">AI の選び方</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <nav><a href="../">ホーム</a><a href="./">考え方</a><a href="../help/">ヘルプ</a><a href="../privacy/">プライバシー</a><a href="mailto:support@artman21.co.jp">お問い合わせ</a></nav>
+  <p>© 2026 Artman21</p>
+</footer>
+
+</body>
+</html>
