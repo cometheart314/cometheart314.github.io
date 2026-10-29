@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yajiri ヘルプ</title>
+<meta name="description" content="Yajiri の使い方。登録のしかた、Apple Intelligence と Claude の違い、設定、困ったときの対処。">
+<link rel="canonical" href="https://cometheart314.github.io/yajiri/help/">
+<link rel="icon" href="../images/favicon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="brand" href="../"><img src="../images/favicon.png" alt="">Yajiri</a>
+  <nav class="site-nav"><a href="../">ホーム</a><a href="./" aria-current="page">ヘルプ</a><a href="../privacy/">プライバシー</a></nav>
+</div></header>
+
+<div class="help-layout">
+<nav class="toc" aria-label="目次">
+  <p class="toc-title">Yajiri ヘルプ</p>
+  <ol>
+    <li><a href="#about">Yajiri とは</a></li>
+    <li><a href="#capture">登録のしかた</a></li>
+    <li><a href="#panel">登録パネル</a></li>
+    <li><a href="#engines">Apple Intelligence と Claude の違い</a></li>
+    <li><a href="#claude-setup">Claude を使う準備</a></li>
+    <li><a href="#settings">設定</a></li>
+    <li><a href="#services">右クリックのメニューに出す</a></li>
+    <li><a href="#trouble">困ったとき</a></li>
+    <li><a href="#privacy">プライバシー</a></li>
+  </ol>
+</nav>
+
+<main class="page">
+
+<section id="about">
+  <h1>Yajiri とは</h1>
+  <p class="lead">読んだもの・調べたことを、そのまま Obsidian のノートにするアプリです。</p>
+  <p>どのアプリでも、残したい文章やファイルを Yajiri に送ると、AI が<strong>題名・要約・タグ</strong>を付け、vault の中から<strong>保存先のフォルダ</strong>と<strong>関連するノート</strong>を選びます。内容を確かめて「保存」を押すと、Markdown のノートとして vault に入ります。</p>
+  <ul class="steps">
+    <li><span class="num">1</span>文章を選ぶか、ファイルを選んで Yajiri に送る</li>
+    <li><span class="num">2</span>AI が整理する（数秒〜数十秒）</li>
+    <li><span class="num">3</span>確かめて、直したいところだけ直して保存</li>
+  </ul>
+  <p>Yajiri は、はじめに選んだ vault のフォルダの中にだけノートを書き込みます。同じ名前のノートがあっても上書きせず、別の名前で保存します。</p>
+</section>
+
+<section id="capture">
+  <h1>登録のしかた</h1>
+
+  <h2>文章を選んで送る</h2>
+  <p>Safari、メール、プレビュー、Word など、どのアプリでも使えます。</p>
+  <ol>
+    <li>残したい文章を選びます。</li>
+    <li>右クリックして「サービス」→「<strong>Yajiri に送る</strong>」を選びます。</li>
+  </ol>
+  <p>選んだ部分に書式や画像があれば、見出しや箇条書きは Markdown にし、画像はノートに添付します。「サービス」に Yajiri が出ていないときは「<a href="#services">右クリックのメニューに出す</a>」を見てください。</p>
+
+  <h2>ファイルを送る</h2>
+  <ul>
+    <li>Finder でファイルを右クリックして「サービス」→「<strong>ファイルを Yajiri に送る</strong>」</li>
+    <li>メニューバーの Yajiri のアイコン →「<strong>ファイルを選んで登録…</strong>」</li>
+    <li>Dock の Yajiri のアイコンにファイルをドロップ</li>
+  </ul>
+  <p>1 つのファイルにつき登録パネルが 1 枚開きます。6 個以上をまとめて送ったときは、先頭の 5 個だけにするかを聞かれます。</p>
+
+  <h2>コピーした文章を登録する</h2>
+  <p>文章をコピーしてから、メニューバーの Yajiri のアイコン →「<strong>コピーした文章を登録</strong>」を選びます。</p>
+
+  <h2>読み込めるファイル</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>種類</th><th>取り込まれるもの</th></tr></thead>
+    <tbody>
+      <tr><td>PDF</td><td>本文と画像。文字の無いページ（スキャンしたものなど）は、写っている文字を読み取ります</td></tr>
+      <tr><td>Word（.docx / .doc）、OpenDocument（.odt）</td><td>見出し・箇条書き・リンク・表などの書式と画像</td></tr>
+      <tr><td>RTF / RTFD（テキストエディット、Jedit など）</td><td>書式と画像</td></tr>
+      <tr><td>HTML、Web アーカイブ</td><td>書式と画像</td></tr>
+      <tr><td>画像</td><td>画像を添付し、写っている文字を読み取って本文に入れます</td></tr>
+      <tr><td>テキスト、Markdown、プログラムのファイル</td><td>そのまま（プログラムはコードブロックにします）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">ファイルは 64 MB まで、本文は 20 万文字までです。それより長い本文は途中までを取り込みます。</p>
+</section>
+
+<section id="panel">
+  <h1>登録パネル</h1>
+  <p>AI が整理し終わると、パネルの上に「〜で整理しました」と出ます。どの欄も自由に直せます。</p>
+  <dl>
+    <dt>題名</dt><dd>ノートの名前になります。</dd>
+    <dt>要約</dt><dd>本文の内容を 1〜3 文でまとめたもの。frontmatter の <code>summary</code> に入ります。</dd>
+    <dt>タグ</dt><dd>× で外し、「＋ タグを追加」で足します。設定の「いつも付けるタグ」は毎回入ります。</dd>
+    <dt>保存先</dt><dd>vault の中のフォルダ。AI が選べなかったときは、設定の「既定の保存先」になります。</dd>
+    <dt>添付する画像</dt><dd>ノートに添付する画像です。要らない画像は右上の × で外します。画像は Obsidian の「添付ファイルの場所」の設定どおりに保存されます。</dd>
+    <dt>関連ノート</dt><dd>vault の中で内容が近いノート。ノートの末尾に「関連」としてリンクが入ります。</dd>
+    <dt>詳しく</dt><dd>種類・日付・「ファイル名の先頭に日付を付ける」・本文を確かめられます。Claude の API キーを入れていれば、「<strong>Claude で Markdown に整形</strong>」で本文の体裁を整えられます（要約はせず、内容はそのまま残します）。</dd>
+  </dl>
+  <p>右上の <span class="key">↻</span> から、<strong>この 1 件だけ</strong>別の AI で整理し直せます。ふだんは Apple Intelligence を使い、長い文章のときだけ Claude で整理し直す、という使い方ができます。</p>
+  <p>「保存」（<span class="key">⌘</span><span class="key">↩</span>）でノートを書き込みます。</p>
+</section>
+
+<section id="engines">
+  <h1>Apple Intelligence と Claude の違い</h1>
+  <p class="lead">Yajiri は 2 つの AI から選べます。同じ文章でも、どちらで整理するかで結果がかなり変わることがあります。</p>
+
+  <div class="table-wrap"><table class="compare">
+    <thead><tr><th></th><th>Apple Intelligence</th><th>Claude</th></tr></thead>
+    <tbody>
+      <tr><th>料金</th><td>無料</td><td>使った分だけ、ご自身の API キーに請求されます</td></tr>
+      <tr><th>内容の送り先</th><td>Mac の外に出ません</td><td>Anthropic 社の Claude API に送られます</td></tr>
+      <tr><th>必要なもの</th><td>Apple Intelligence に対応した Mac で、Apple Intelligence をオンにしておく</td><td>Anthropic の API キーと、インターネットへの接続</td></tr>
+      <tr><th>AI が読む本文</th><td>約 1,800 文字<br><span class="sub">長い文章は、冒頭と各節の書き出しを抜き出して渡します</span></td><td>3 万文字まで</td></tr>
+      <tr><th>保存先・関連ノートの候補</th><td>本文に近いものを、それぞれ 20 件まで選んで渡します</td><td>vault のフォルダとノートをすべて渡します</td></tr>
+      <tr><th>得意なもの</th><td>短い〜中くらいの文章（Web の記事、メモ、メール）</td><td>長い書類、いくつもの話題が入った文章（メールマガジン、報告書、論文）</td></tr>
+      <tr><th>本文を Markdown に整形</th><td>できません</td><td>できます</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>結果が違うのはなぜか</h2>
+
+  <h3>1. 読める文章の量が違う</h3>
+  <p>Apple Intelligence は Mac の中で動く小さな AI で、一度に扱える量が限られています（指示と答えを合わせて、日本語でおよそ 4,000 文字ぶん）。そのため Yajiri は、本文を約 1,800 文字に縮めてから渡しています。</p>
+  <figure>
+    <svg class="coverage" viewBox="0 0 640 170" role="img" aria-label="8 万文字の文章のうち、Apple Intelligence は約 1,800 文字、Claude は 3 万文字を読みます">
+      <text x="0" y="20" class="label">8 万文字のメールマガジンの場合</text>
+      <text x="0" y="58" class="label">Apple Intelligence</text>
+      <rect x="150" y="42" width="480" height="24" rx="4" class="track"/>
+      <rect x="150" y="42" width="10" height="24" rx="2" class="read"/>
+      <rect x="166" y="42" width="3" height="24" class="read"/>
+      <rect x="190" y="42" width="3" height="24" class="read"/>
+      <rect x="250" y="42" width="3" height="24" class="read"/>
+      <rect x="330" y="42" width="3" height="24" class="read"/>
+      <rect x="470" y="42" width="3" height="24" class="read"/>
+      <text x="150" y="84" class="sub">冒頭と各節の書き出しだけ（全体の約 2%）</text>
+      <text x="0" y="128" class="label">Claude</text>
+      <rect x="150" y="112" width="480" height="24" rx="4" class="track"/>
+      <rect x="150" y="112" width="180" height="24" rx="4" class="read"/>
+      <text x="150" y="154" class="sub">先頭から 3 万文字（全体の約 37%）</text>
+    </svg>
+  </figure>
+  <p>短い文章なら、どちらも全文を読むので差はあまり出ません。いくつもの話題が入った長い文章では、Apple Intelligence は一部しか読めないので、要約やタグが<strong>前半の話題に偏る</strong>ことがあります。</p>
+
+  <h3>2. 選べる候補の数が違う</h3>
+  <p>Apple Intelligence には、vault のフォルダとノートを全部は渡せません。Yajiri が本文と名前の似ているものを 20 件ずつ選んで渡し、AI はその中から選びます。名前の書き方が本文と大きく違うフォルダやノートは、候補に入らないことがあります。</p>
+  <p>Claude にはすべてを渡すので、名前が少し違っても（たとえば「ザックバラン」と「ざっくばらん」）同じものだと分かって選べます。</p>
+
+  <h3>3. AI の大きさが違う</h3>
+  <p>Apple Intelligence は Mac の中で動かすために小さく作られた AI です。Claude は Anthropic のデータセンターで動く大きな AI で、文章の意味をつかむ力や、ものごとの知識に大きな差があります。題名に連載の名前を入れる、何の文章か（メールマガジンなど）を見分ける、といった判断は Claude のほうが得意です。</p>
+
+  <h2>どちらを選べばよいか</h2>
+  <div class="cards">
+    <div class="card">
+      <p class="card-title">Apple Intelligence がおすすめ</p>
+      <ul>
+        <li>料金をかけたくない</li>
+        <li>内容を Mac の外に出したくない</li>
+        <li>主に Web の記事やメモなど、短めの文章を残す</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title">Claude がおすすめ</p>
+      <ul>
+        <li>長い書類や PDF、メールマガジンをよく残す</li>
+        <li>保存先や関連ノートの選び方の精度を上げたい</li>
+        <li>本文を読みやすい Markdown に整えたい</li>
+      </ul>
+    </div>
+  </div>
+  <p>迷ったら、ふだんは Apple Intelligence にしておき、結果が物足りないときだけ登録パネルの <span class="key">↻</span> から「Claude で整理し直す」を選ぶのがおすすめです。API キーを入れておけば、設定を切り替えなくても 1 件ずつ使い分けられます。</p>
+
+  <h2>Claude のモデル</h2>
+  <p>設定の「AI」で選べます。</p>
+  <div class="table-wrap"><table>
+    <tbody>
+      <tr><th>Claude Sonnet 5.5</th><td>速さと賢さのバランスが良く、ふだん使いにおすすめ（既定）</td></tr>
+      <tr><th>Claude Opus 5.5</th><td>いちばん賢い。料金は高め</td></tr>
+      <tr><th>Claude Haiku 4.5</th><td>速くて安い</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">1 件あたりの料金は、文章の長さとモデルによって変わります。使った量と料金は Anthropic のコンソールで確かめられます。</p>
+</section>
+
+<section id="claude-setup">
+  <h1>Claude を使う準備</h1>
+  <ol>
+    <li><a href="https://console.anthropic.com/settings/keys">Anthropic のコンソール</a>でアカウントを作り、支払い方法を登録します。</li>
+    <li>「API Keys」で API キーを作り、コピーします（<code>sk-ant-</code> で始まる文字列です）。</li>
+    <li>Yajiri の設定 →「AI」で「Claude」を選び、API キーを貼り付けて「確認」を押します。「使えます。」と出れば準備完了です。</li>
+  </ol>
+  <p>API キーは Mac のキーチェーンに保存され、Anthropic 以外には送りません。はじめて Claude に送るときは、内容を Anthropic に送ってよいかを確かめるダイアログが出ます。</p>
+</section>
+
+<section id="settings">
+  <h1>設定</h1>
+  <p>メニューバーの Yajiri のアイコン →「設定…」（<span class="key">⌘</span><span class="key">,</span>）で開きます。</p>
+  <h2>一般</h2>
+  <ul>
+    <li><strong>vault</strong>・<strong>既定の保存先</strong>：ノートを書き込む vault と、AI が保存先を選べなかったときのフォルダ</li>
+    <li><strong>保存したら Obsidian で開く</strong></li>
+    <li><strong>整理が終わったときの音</strong></li>
+    <li><strong>Dock にアイコンを表示</strong>：オフにすると、メニューバーだけで動きます</li>
+    <li><strong>ログイン時に起動</strong></li>
+  </ul>
+  <h2>AI</h2>
+  <p>Apple Intelligence と Claude の切り替え、Claude の API キーとモデル。</p>
+  <h2>ノート</h2>
+  <ul>
+    <li><strong>種類</strong>：AI が選ぶノートの種類の一覧（frontmatter の <code>type</code>）。名前を押すと直せ、行をドラッグすると並べ替えられます。一番上が既定です。</li>
+    <li><strong>いつも付けるタグ</strong>：カンマで区切って書きます。</li>
+    <li><strong>本文の先頭に題名の見出し（# 題名）を入れる</strong></li>
+    <li><strong>関連するノートを探してリンクする</strong></li>
+  </ul>
+</section>
+
+<section id="services">
+  <h1>右クリックのメニューに出す</h1>
+  <p>ふつうは入れた直後から、右クリックの「サービス」に「Yajiri に送る」が出ます。出ないときは、次のようにオンにします。</p>
+  <ol>
+    <li>システム設定 →「キーボード」を開きます。</li>
+    <li>「キーボードショートカット…」を押し、左の一覧から「サービス」を選びます。</li>
+    <li>「テキスト」の中の「<strong>Yajiri に送る</strong>」をオンにします。</li>
+    <li>「ファイルとフォルダ」の中の「<strong>ファイルを Yajiri に送る</strong>」をオンにします。</li>
+  </ol>
+  <p>同じ画面で、それぞれにキーボードショートカットを割り当てることもできます。Yajiri の設定 →「一般」→「右クリックのメニューに出す方法…」からも、この画面を開けます。</p>
+</section>
+
+<section id="trouble">
+  <h1>困ったとき</h1>
+  <dl>
+    <dt>「Apple Intelligence を使えません」と出る</dt>
+    <dd>システム設定の「Apple Intelligence と Siri」でオンにしてください。オンにした直後は、モデルの準備に時間がかかることがあります。対応していない Mac では Claude を使ってください。</dd>
+    <dt>「文章が長すぎて Apple Intelligence で扱えませんでした」と出る</dt>
+    <dd>保存先や関連ノートの候補が多いと起きることがあります。登録パネルの <span class="key">↻</span> から Claude で整理し直すか、題名などを手で入力して保存してください。</dd>
+    <dt>要約やタグが文章の一部の話題に偏っている</dt>
+    <dd>長い文章では、Apple Intelligence は一部しか読めません（<a href="#engines">違いの説明</a>）。Claude で整理し直すと、全体を踏まえた結果になります。</dd>
+    <dt>AI が整理を断った</dt>
+    <dd>内容によっては AI が整理を断ることがあります。題名・タグなどを手で入力すれば、そのまま保存できます。</dd>
+    <dt>「API キーが正しくありません」と出る</dt>
+    <dd>設定の「AI」で API キーを貼り直し、「確認」を押してください。</dd>
+    <dt>「利用上限に達しました」「混み合っています」と出る</dt>
+    <dd>少し待ってから <span class="key">↻</span> でやり直してください。何度も出るときは、Anthropic のコンソールで利用上限や残高を確かめてください。</dd>
+    <dt>ファイルを読み込めない</dt>
+    <dd>メニューバーの Yajiri のアイコン →「ファイルを選んで登録…」から、同じファイルを選び直してください。</dd>
+    <dt>HTML の画像が取り込まれない</dt>
+    <dd>保存した HTML の隣のフォルダにある画像は読めないことがあります。Safari で「Web アーカイブ」形式で保存すると、画像ごと取り込めます。</dd>
+  </dl>
+</section>
+
+<section id="privacy">
+  <h1>プライバシー</h1>
+  <ul>
+    <li><strong>Apple Intelligence</strong>：整理はすべて Mac の中で行われ、内容は外に出ません。</li>
+    <li><strong>Claude</strong>：整理する文章（または取り込んだファイルの中身）と、vault のノート名・フォルダ名の一覧を、Anthropic 社の Claude API に送ります。送った内容は Anthropic のプライバシーポリシーに従って扱われます。</li>
+    <li>Yajiri が書き込むのは、選んだ vault の中だけです。</li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <nav><a href="../">ホーム</a><a href="./">ヘルプ</a><a href="../privacy/">プライバシー</a><a href="mailto:support@artman21.co.jp">お問い合わせ</a></nav>
+  <p>© 2026 Artman21</p>
+</footer>
+</body>
+</html>

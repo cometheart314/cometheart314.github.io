@@ -1,0 +1,219 @@
+/* Yajiri のサイト (トップ・ヘルプ・プライバシー) で共通の見た目 */
+
+:root {
+  --bg: #fbfbfd;
+  --surface: #ffffff;
+  --ink: #1d1d1f;
+  --sub: #5f6068;
+  --line: #e3e3e8;
+  --accent: #5a4fcf;
+  --accent-soft: #eeecfb;
+  --read: #5a4fcf;
+  --track: #e8e8ee;
+  --code-bg: #f2f2f6;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16161a;
+    --surface: #1f1f24;
+    --ink: #ececf1;
+    --sub: #a3a3ad;
+    --line: #34343c;
+    --accent: #9d94ff;
+    --accent-soft: #2a2745;
+    --read: #9d94ff;
+    --track: #33333b;
+    --code-bg: #2a2a31;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; }
+
+/* ヘッダー */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+}
+.brand img { width: 28px; height: 28px; }
+.brand:hover { text-decoration: none; }
+.site-nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+.site-nav a { color: var(--sub); }
+.site-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+/* 本文 */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
+}
+h1 { font-size: 30px; line-height: 1.35; margin: 0 0 16px; }
+h2 { font-size: 22px; line-height: 1.4; margin: 40px 0 12px; }
+h3 { font-size: 18px; margin: 28px 0 8px; }
+p, ul, ol, dl, table, figure { margin: 0 0 16px; }
+ul, ol { padding-left: 1.5em; }
+li { margin-bottom: 4px; }
+.lead { font-size: 18px; color: var(--sub); }
+.note { font-size: 14px; color: var(--sub); }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.key {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0 5px;
+  margin: 0 1px;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--surface);
+}
+
+/* 表 */
+.table-wrap { overflow-x: auto; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+thead th { font-size: 14px; color: var(--sub); font-weight: 600; }
+tbody th { font-weight: 600; white-space: nowrap; }
+td .sub { display: block; font-size: 13px; color: var(--sub); }
+table.compare th:first-child { width: 22%; }
+table.compare thead th:not(:first-child) { color: var(--ink); font-size: 15px; }
+
+/* 用語と説明 */
+dt { font-weight: 600; margin-top: 14px; }
+dd { margin: 2px 0 0; color: var(--ink); }
+
+/* 手順 */
+.steps { list-style: none; padding: 0; }
+.steps li { display: flex; gap: 12px; align-items: baseline; margin-bottom: 10px; }
+.num {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* カード */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.card ul { margin: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card-title { font-weight: 700; margin-bottom: 8px; }
+
+/* 読む量の図 */
+figure svg { width: 100%; height: auto; display: block; }
+svg .label { font-size: 15px; font-weight: 600; fill: var(--ink); }
+svg .sub { font-size: 13px; fill: var(--sub); }
+svg .track { fill: var(--track); }
+svg .read { fill: var(--read); }
+
+/* ヘルプ: 目次を左に置く */
+.help-layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 40px;
+}
+.help-layout .page { padding-left: 0; padding-right: 0; margin: 0; }
+.toc {
+  position: sticky;
+  top: 64px;
+  align-self: start;
+  padding: 32px 0;
+  font-size: 14px;
+}
+.toc-title { font-weight: 700; margin-bottom: 8px; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; }
+.toc a { display: block; padding: 4px 8px; border-radius: 6px; color: var(--sub); }
+.toc a:hover { background: var(--accent-soft); color: var(--ink); text-decoration: none; }
+.help-layout section + section { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 32px; }
+@media (max-width: 820px) {
+  .help-layout { display: block; }
+  .toc { position: static; padding: 24px 0 0; }
+  .toc ol { display: flex; flex-wrap: wrap; gap: 4px; }
+  .toc a { background: var(--accent-soft); }
+}
+
+/* トップ */
+.hero { text-align: center; padding: 56px 16px 24px; }
+.hero img { width: 128px; height: 128px; }
+.hero h1 { font-size: 40px; margin: 12px 0 4px; }
+.hero .lead { margin: 0 auto 24px; max-width: 560px; }
+.button {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.button:hover { text-decoration: none; filter: brightness(1.08); }
+.button.secondary { background: var(--accent-soft); color: var(--accent); }
+.buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.status { font-size: 14px; color: var(--sub); margin-top: 12px; }
+
+/* フッター */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 16px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--sub);
+}
+.site-footer a { color: var(--sub); }
+.site-footer nav { display: flex; gap: 16px; justify-content: center; margin-bottom: 6px; }

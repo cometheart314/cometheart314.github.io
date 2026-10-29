@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yajiri プライバシーポリシー</title>
+<meta name="description" content="macOS アプリ Yajiri での利用者の情報の扱い。">
+<link rel="canonical" href="https://cometheart314.github.io/yajiri/privacy/">
+<link rel="icon" href="../images/favicon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header"><div class="inner">
+  <a class="brand" href="../"><img src="../images/favicon.png" alt="">Yajiri</a>
+  <nav class="site-nav"><a href="../">ホーム</a><a href="../help/">ヘルプ</a><a href="./" aria-current="page">プライバシー</a></nav>
+</div></header>
+
+<main class="page">
+<h1>Yajiri プライバシーポリシー</h1>
+<p class="note">最終更新日：2026 年 10 月 29 日</p>
+
+<p>株式会社 Artman21（以下「当社」）は、macOS アプリ「Yajiri」（以下「本アプリ」）での利用者の情報の扱いを、次のとおり定めます。</p>
+
+<h2>1. 当社が集める情報</h2>
+<p>当社は、本アプリを通じて利用者の情報を集めません。本アプリには、利用状況の分析、広告、クラッシュレポートを当社に送る仕組みはありません。本アプリに登録した文章・画像・ノートが当社のサーバーに送られることもありません。</p>
+
+<h2>2. 本アプリが利用者の Mac に保存する情報</h2>
+<p>本アプリは、動作に必要な次の情報を利用者の Mac の中だけに保存します。</p>
+<ul>
+  <li><strong>ノート</strong>：利用者が登録した文章と画像は、利用者が選んだフォルダ（Obsidian の vault など）に Markdown ファイルとして保存します</li>
+  <li><strong>設定</strong>：選んだフォルダへのアクセス権、使う AI、ノートの種類の一覧などの設定は、本アプリの設定として保存します</li>
+  <li><strong>Claude の API キー</strong>：利用者が入力した場合に限り、macOS のキーチェーンに保存します</li>
+</ul>
+<p>これらは本アプリを削除するか、設定やファイルを利用者が消すことで取り除けます。</p>
+
+<h2>3. AI による整理</h2>
+<p>本アプリは、登録する内容から題名・タグ・要約・保存先などを提案するために AI を使います。どの AI を使うかは利用者が設定で選べます。</p>
+
+<h3>Apple Intelligence（既定）</h3>
+<p>Apple の Foundation Models を使い、利用者の Mac の中で処理します。内容が当社や Apple に送られることはありません。</p>
+
+<h3>Claude（利用者が選んだ場合だけ）</h3>
+<p>利用者が Claude を選び、自分の API キーを入力した場合に限り、次の情報を Anthropic, PBC の API（<code>api.anthropic.com</code>）に送ります。</p>
+<ul>
+  <li>登録しようとしている文章（長い場合は先頭の部分だけ）。画像は送りません</li>
+  <li>内容を受け取ったアプリの名前（例：「Safari」）、ファイルから登録したときはそのファイル名</li>
+  <li>保存先と関連ノートの候補として、選んだフォルダの中のフォルダ名とノート名</li>
+  <li>設定にあるノートの種類の一覧</li>
+</ul>
+<p>「Claude で Markdown に整形」を押したときも、同じように文章を送ります。</p>
+<p>送った情報は、利用者自身の Anthropic のアカウントのもとで扱われ、当社は受け取りません。Anthropic での扱いは、Anthropic のプライバシーポリシーと利用規約によります。</p>
+
+<h2>4. ネットワークの利用</h2>
+<p>本アプリがネットワークにつなぐのは、次の場合だけです。</p>
+<ul>
+  <li>上の「Claude」を利用者が選んだとき</li>
+  <li>取り込む文章（Web ページなど）にネット上の画像が含まれていて、その画像をノートに添付するとき。画像の置き場所のサーバーに、ふつうのブラウザと同じように画像を取りに行きます</li>
+</ul>
+
+<h2>5. 第三者への提供</h2>
+<p>当社は利用者の情報を集めないため、第三者に提供することもありません。</p>
+
+<h2>6. 子どもの利用</h2>
+<p>本アプリは子どもから特別に情報を集めることはありません。</p>
+
+<h2>7. このポリシーの変更</h2>
+<p>このポリシーを変更するときは、このページで知らせます。</p>
+
+<h2>8. お問い合わせ</h2>
+<p>株式会社 Artman21<br>メール：<a href="mailto:support@artman21.co.jp">support@artman21.co.jp</a></p>
+</main>
+
+<footer class="site-footer">
+  <nav><a href="../">ホーム</a><a href="../help/">ヘルプ</a><a href="./">プライバシー</a><a href="mailto:support@artman21.co.jp">お問い合わせ</a></nav>
+  <p>© 2026 Artman21</p>
+</footer>
+
+</body>
+</html>
